@@ -255,6 +255,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/grecaptcha@npm:^3.0.3":
+  version: 3.0.3
+  resolution: "@types/grecaptcha@npm:3.0.3"
+  checksum: c2a6815360b0fee5cd1f4a427974054dcc61b2bbeee623505d13188dd3c76e79eef09751bc38c2a6e42bdb18b14f0892a65ce62f66eced48006d9793c984d6a5
+  languageName: node
+  linkType: hard
+
 "@types/node@npm:*":
   version: 16.6.1
   resolution: "@types/node@npm:16.6.1"
@@ -2858,6 +2865,7 @@ resolve@~1.19.0:
     "@microsoft/api-extractor": ^7.18.5
     "@rollup/plugin-alias": ^3.1.5
     "@rollup/plugin-node-resolve": ^13.0.4
+    "@types/grecaptcha": ^3.0.3
     "@vitejs/plugin-vue": ^1.4.0
     "@vue/compiler-sfc": ^3.2.4
     rollup: ^2.56.2
