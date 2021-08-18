@@ -1,3 +1,5 @@
-import { App } from "vue";
+import { install } from "./config";
 
-export default function install(app: App<Element>, options: any) {}
+export { options } from "./types";
+
+export default install;
