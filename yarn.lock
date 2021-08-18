@@ -278,6 +278,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vitejs/plugin-vue@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "@vitejs/plugin-vue@npm:1.4.0"
+  peerDependencies:
+    "@vue/compiler-sfc": ^3.0.8
+  checksum: 516b0accd04d5b589f6a68a2a14a0b734c50468df1278472d0ac17c7cb737e1894e83692b3b7ce48f7d7f914f8a707e5967be792e7096648b34de171f6f4b993
+  languageName: node
+  linkType: hard
+
 "@volar/code-gen@npm:^0.27.3":
   version: 0.27.3
   resolution: "@volar/code-gen@npm:0.27.3"
@@ -2193,6 +2202,13 @@ resolve@~1.19.0:
   languageName: node
   linkType: hard
 
+"rollup-plugin-analyzer@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "rollup-plugin-analyzer@npm:4.0.0"
+  checksum: 72f794f79efe4f620674a48949be9f64dc3cbf601c52ff90ae7cbeaacb604b86bb34321695d0f8f320e5c0b47880022849d92c51d231e1b32c6757a2c627be5e
+  languageName: node
+  linkType: hard
+
 "rollup-plugin-terser@npm:^7.0.2":
   version: 7.0.2
   resolution: "rollup-plugin-terser@npm:7.0.2"
@@ -2842,8 +2858,10 @@ resolve@~1.19.0:
     "@microsoft/api-extractor": ^7.18.5
     "@rollup/plugin-alias": ^3.1.5
     "@rollup/plugin-node-resolve": ^13.0.4
+    "@vitejs/plugin-vue": ^1.4.0
     "@vue/compiler-sfc": ^3.2.4
     rollup: ^2.56.2
+    rollup-plugin-analyzer: ^4.0.0
     rollup-plugin-terser: ^7.0.2
     rollup-plugin-typescript2: ^0.30.0
     rollup-plugin-vue: ^6.0.0
