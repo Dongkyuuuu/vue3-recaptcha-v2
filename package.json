@@ -36,5 +36,8 @@
     "vite": "^2.5.0",
     "vue": "^3.0.0",
     "vue-tsc": "^0.2.3"
+  },
+  "dependencies": {
+    "@types/grecaptcha": "^3.0.3"
   }
 }
