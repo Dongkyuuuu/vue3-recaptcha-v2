@@ -1,6 +1,6 @@
 # vue3-recaptcha-v2
 
-reCAPTCHA for `Vue3` : CompositionAPI, Types
+reCAPTCHA for **Vue3** : CompositionAPI, Types
 
 # Installation
 
@@ -18,7 +18,7 @@ $ npm install vue3-recaptcha-v2 --save
 
 # Example
 
-`vue-recaptcha` is registered component.
+`vue-recaptcha` is registered(global) component.
 
 ### Setup
 
@@ -138,7 +138,7 @@ app.use(VueRecaptcha, { siteKey: "your recaptcha sitekey" }).mount("#app");
 
 ## Props
 
-`vue-recaptcha` components props list
+**vue-recaptcha** components props list
 
 ### theme
 
@@ -160,7 +160,7 @@ app.use(VueRecaptcha, { siteKey: "your recaptcha sitekey" }).mount("#app");
 
 ## Emit
 
-`vue-recaptcha` components emit list
+**vue-recaptcha** components emit list
 
 ### widgetId
 
@@ -180,7 +180,7 @@ app.use(VueRecaptcha, { siteKey: "your recaptcha sitekey" }).mount("#app");
 
 ## methods
 
-`vue-recaptcha` components methods list
+**vue-recaptcha** components methods list
 
 ### resetRecaptcha
 
