@@ -1,36 +1,43 @@
 <template>
-  <div id="reCAPTCHA"></div>
+  <div ref="reCAPTCHA"></div>
 </template>
 
 <script lang="ts">
 import {
   computed,
   defineComponent,
-  inject,
   onBeforeMount,
   PropType,
   toRefs,
+  ref,
 } from "vue";
+import type { recaptchaTheme, recaptchaSize } from "../types";
+import { state } from "../config/state";
 
 export default defineComponent({
   name: "VueRecaptcha",
   props: {
-    theme: { type: String as PropType<ReCaptchaV2.Theme>, default: "light" },
-    size: { type: String as PropType<ReCaptchaV2.Size>, default: "normal" },
+    theme: { type: String as PropType<recaptchaTheme>, default: "light" },
+    size: {
+      type: String as PropType<recaptchaSize>,
+      default: "normal",
+    },
     tabindex: { type: Number, default: 0 },
   },
   setup: (props, { emit }) => {
     const { theme, size, tabindex } = toRefs(props);
-    const siteKey = inject("reCaptchaSiteKey");
+    const recaptchaWidgetID = ref<number | null>(null);
+    const reCAPTCHA = ref<HTMLElement | string>("");
+    const siteKey = ref<string>(state.siteKey);
 
-    const propTheme = computed<ReCaptchaV2.Theme>(() => theme.value);
-    const propSize = computed<ReCaptchaV2.Size>(() => size.value);
+    const propTheme = computed<recaptchaTheme>(() => theme.value);
+    const propSize = computed<recaptchaSize>(() => size.value);
     const propTabindex = computed<number>(() => tabindex.value);
 
     const renderRecaptcha = () => {
-      grecaptcha.ready(() => {
-        grecaptcha.render("reCAPTCHA", {
-          sitekey: siteKey as string,
+      window.grecaptcha.ready(() => {
+        recaptchaWidgetID.value = window.grecaptcha.render(reCAPTCHA.value, {
+          sitekey: siteKey.value,
           theme: propTheme.value,
           size: propSize.value,
           tabindex: propTabindex.value,
@@ -38,14 +45,24 @@ export default defineComponent({
           "expired-callback": () => emit("expired"),
           "error-callback": () => emit("fail"),
         });
+
+        emit("widgetId", recaptchaWidgetID.value);
       });
     };
 
     onBeforeMount(() => {
-      document.getElementById("vue3-recaptcha-v2")!.onload = () => {
+      if (!window.grecaptcha) {
+        document.getElementById("vue3-recaptcha-v2")!.onload = () => {
+          renderRecaptcha();
+        };
+      } else {
         renderRecaptcha();
-      };
+      }
     });
+
+    return {
+      reCAPTCHA,
+    };
   },
 });
 </script>
