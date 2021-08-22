@@ -100,7 +100,7 @@ app.use(VueRecaptcha, { siteKey: "your recaptcha sitekey" }).mount("#app");
     @fail="callbackFail"
   />
 
-  <button @click="actionReset()">reset!</button>
+  <button @click="actionReset">reset!</button>
 </template>
 
 <script>
