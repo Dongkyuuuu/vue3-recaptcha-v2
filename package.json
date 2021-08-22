@@ -12,6 +12,13 @@
     "dist/vue-router.d.ts",
     "README.md"
   ],
+  "keywords": [
+    "vue",
+    "vue3",
+    "vue-component",
+    "google-recaptcha",
+    "recaptcha"
+  ],
   "scripts": {
     "build": "rollup -c rollup.config.js",
     "build:dts": "api-extractor run --local --verbose",
