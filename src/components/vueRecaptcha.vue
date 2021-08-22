@@ -10,6 +10,7 @@ import {
   PropType,
   toRefs,
   ref,
+  onUnmounted,
 } from "vue";
 import type { recaptchaTheme, recaptchaSize } from "../types";
 import { state } from "../config/state";
@@ -59,6 +60,8 @@ export default defineComponent({
         renderRecaptcha();
       }
     });
+
+    onUnmounted(() => (reCAPTCHA.value = ""));
 
     return {
       reCAPTCHA,
