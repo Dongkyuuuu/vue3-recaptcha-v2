@@ -20,7 +20,6 @@ then
 
   # changelog
   yarn run changelog
-  yarn prettier --write CHANGELOG.md
   echo "Please check the git history and the changelog and press enter"
   read OKAY
 
@@ -30,7 +29,7 @@ then
   git tag "v$VERSION"
 
   # commit
-  yarn publish --tag next --new-version "$VERSION" --no-commit-hooks --no-git-tag-version
+  yarn npm publish --tag next --new-version "$VERSION" --no-commit-hooks --no-git-tag-version
 
   # publish
   git push origin refs/tags/v$VERSION

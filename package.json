@@ -23,7 +23,8 @@
     "build": "rollup -c rollup.config.js",
     "build:dts": "api-extractor run --local --verbose",
     "dev": "vite --config playground/vite.config.js",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1",
+    "release": "bash scripts/release.sh"
   },
   "peerDependencies": {
     "vue": "^3.0.0"
