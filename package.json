@@ -1,6 +1,6 @@
 {
   "name": "vue3-recaptcha-v2",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "reCAPTCHA for Vue3 : CompositionAPI, Types",
   "main": "dist/vue3-recaptch-v2.js",
   "types": "dist/vue3-recaptch-v2.d.ts",

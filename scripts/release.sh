@@ -24,12 +24,12 @@ then
   read OKAY
 
   # commit and tag
-  git add CHANGELOG.md package.json
+  git add CHANGELOG.md package.json .yarn/versions/*
   git commit -m "release: v$VERSION"
   git tag "v$VERSION"
 
   # commit
-  yarn npm publish --tag next --new-version "$VERSION" --no-commit-hooks --no-git-tag-version
+  yarn npm publish
 
   # publish
   git push origin refs/tags/v$VERSION
