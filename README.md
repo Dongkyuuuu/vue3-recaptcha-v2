@@ -127,7 +127,7 @@ app.use(VueRecaptcha, { siteKey: "your recaptcha sitekey" }).mount("#app");
       // Reset Recaptcha action
       actionReset() {
         const { resetRecaptcha } = useRecaptcha();
-        resetRecaptcha(recaptchaWidget.value);
+        resetRecaptcha(this.recaptchaWidget.value);
       },
     },
   };
