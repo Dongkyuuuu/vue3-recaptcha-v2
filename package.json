@@ -22,7 +22,8 @@
   "scripts": {
     "build": "rollup -c rollup.config.js",
     "build:dts": "api-extractor run --local --verbose",
-    "dev": "vite --config playground/vite.config.js"
+    "dev": "vite --config playground/vite.config.js",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1"
   },
   "peerDependencies": {
     "vue": "^3.0.0"
@@ -34,6 +35,7 @@
     "@types/grecaptcha": "^3.0.3",
     "@vitejs/plugin-vue": "^1.4.0",
     "@vue/compiler-sfc": "^3.2.4",
+    "conventional-changelog-cli": "^2.1.1",
     "rollup": "^2.56.2",
     "rollup-plugin-analyzer": "^4.0.0",
     "rollup-plugin-terser": "^7.0.2",
