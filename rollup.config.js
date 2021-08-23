@@ -10,8 +10,7 @@ export default {
   output: [
     {
       file: "dist/vue3-recaptcha-v2.js",
-      format: "esm",
-      globals: { vue: "Vue" },
+      format: "es",
     },
   ],
   external: ["vue"],
