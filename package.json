@@ -4,8 +4,11 @@
   "description": "reCAPTCHA for Vue3 : CompositionAPI, Types",
   "main": "dist/vue3-recaptcha-v2.js",
   "types": "dist/vue3-recaptcha-v2.d.ts",
-  "repository": "git@github.com:DongKyuuuu/vue3-recaptcha-v2.git",
-  "author": "Dongkyuuuu <dongkyu.me@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dongkyuuuu/vue3-recaptcha-v2.git"
+  },
+  "author": "DongKyuuuu",
   "license": "MIT",
   "files": [
     "dist/*.js",
