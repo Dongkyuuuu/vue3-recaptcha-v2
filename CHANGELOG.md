@@ -1,3 +1,12 @@
+# [0.2.0](https://github.com/dongkyuuuu/vue3-recaptcha-v2/compare/v0.1.1...v0.2.0) (2021-08-24)
+
+
+### Features
+
+* add custom component name ([2545c46](https://github.com/dongkyuuuu/vue3-recaptcha-v2/commit/2545c46ce3f3e58badb6baba058e7e49fe3a0334))
+
+
+
 ## [0.1.1](https://github.com/dongkyuuuu/vue3-recaptcha-v2/compare/v0.1.0...v0.1.1) (2021-08-24)
 
 
