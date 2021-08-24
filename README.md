@@ -1,6 +1,6 @@
 # vue3-recaptcha-v2
 
-reCAPTCHA for **Vue3** : CompositionAPI, Types
+`reCAPTCHA v2` for `Vue3` : CompositionAPI, Types
 
 # Installation
 
@@ -30,7 +30,12 @@ import VueRecaptcha from "vue3-recaptcha-v2";
 
 const app = createApp(App);
 
-app.use(VueRecaptcha, { siteKey: "your recaptcha sitekey" }).mount("#app");
+app
+  .use(VueRecaptcha, {
+    siteKey: "your recaptcha sitekey",
+    componentName: "your custom componet name", // default: 'vue-recaptcha'
+  })
+  .mount("#app");
 ```
 
 ### Composition API

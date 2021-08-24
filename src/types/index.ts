@@ -3,6 +3,7 @@
  */
 export interface options {
   siteKey: string;
+  componentName?: string;
 }
 
 /**

@@ -6,11 +6,15 @@ import { state } from "./state";
 const ERROR_MSG_SITEKEY = "options must be included siteKey";
 
 export function install(app: App<Element>, options: options) {
+  const componentName = options.componentName
+    ? options.componentName
+    : "vue-recaptcha";
+
   if (!options.siteKey) throw new Error(ERROR_MSG_SITEKEY);
   _script();
 
   state.siteKey = options.siteKey;
-  app.component("vue-recaptcha", VueRecaptcha);
+  app.component(componentName, VueRecaptcha);
 }
 
 function _script() {
