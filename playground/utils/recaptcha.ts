@@ -7,5 +7,5 @@ import VueRecaptcha from "../../dist/vue3-recaptcha-v2";
 import siteKey from "../config";
 
 export default function install(app: App<Element>) {
-  app.use(VueRecaptcha, { siteKey: siteKey });
+  app.use(VueRecaptcha, { siteKey: siteKey, alternativeDomain: true });
 }

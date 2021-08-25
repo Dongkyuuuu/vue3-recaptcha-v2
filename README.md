@@ -34,9 +34,18 @@ app
   .use(VueRecaptcha, {
     siteKey: "your recaptcha sitekey",
     componentName: "your custom componet name", // default: 'vue-recaptcha'
+    alterDomain: false, // default: false
   })
   .mount("#app");
 ```
+
+### \*install options
+
+| Option          | Type      | Description                                                                           |
+| --------------- | --------- | ------------------------------------------------------------------------------------- |
+| `siteKey`       | `string`  | (required) recaptcha siteKey                                                          |
+| `componentName` | `string`  | If you want to use custom component name, use this option. (default: `vue-recaptcha`) |
+| `alterDomain`   | `boolean` | `true`: domain replace `www.google.com` with `www.recaptch.net`                       |
 
 ### Composition API
 

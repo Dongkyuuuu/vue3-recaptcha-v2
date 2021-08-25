@@ -6,18 +6,18 @@ import { state } from "./state";
 const ERROR_MSG_SITEKEY = "options must be included siteKey";
 
 export function install(app: App<Element>, options: options) {
-  const componentName = options.componentName
-    ? options.componentName
-    : "vue-recaptcha";
-
   if (!options.siteKey) throw new Error(ERROR_MSG_SITEKEY);
-  _script();
+  _script(options);
 
   state.siteKey = options.siteKey;
-  app.component(componentName, VueRecaptcha);
+  app.component(
+    options.componentName ? options.componentName : "vue-recaptcha",
+    VueRecaptcha
+  );
 }
 
-function _script() {
+function _script(options: options) {
+  const domain = options.alterDomain ? "www.recaptcha.net" : "www.google.com";
   const isExist = document.getElementById("vue3-recaptcha-v2");
   if (isExist) return;
 
@@ -25,7 +25,7 @@ function _script() {
   script.setAttribute("id", "vue3-recaptcha-v2");
   script.setAttribute(
     "src",
-    "https://www.google.com/recaptcha/api.js?render=explicit"
+    `https://${domain}/recaptcha/api.js?render=explicit`
   );
   script.setAttribute("async", "");
   script.setAttribute("defer", "");
