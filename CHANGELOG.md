@@ -1,3 +1,12 @@
+## [0.3.1](https://github.com/dongkyuuuu/vue3-recaptcha-v2/compare/v0.3.0...v0.3.1) (2021-08-25)
+
+
+### Bug Fixes
+
+* **docs:** fix alterDomain Description ([3b6bcf2](https://github.com/dongkyuuuu/vue3-recaptcha-v2/commit/3b6bcf2603cb188ae33f1fbd22357524f9b5adc1))
+
+
+
 # [0.3.0](https://github.com/dongkyuuuu/vue3-recaptcha-v2/compare/v0.2.0...v0.3.0) (2021-08-25)
 
 
