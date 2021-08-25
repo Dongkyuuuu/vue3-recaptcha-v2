@@ -45,7 +45,7 @@ app
 | --------------- | --------- | ------------------------------------------------------------------------------------- |
 | `siteKey`       | `string`  | (required) recaptcha siteKey                                                          |
 | `componentName` | `string`  | If you want to use custom component name, use this option. (default: `vue-recaptcha`) |
-| `alterDomain`   | `boolean` | `true`: domain replace `www.google.com` with `www.recaptch.net`                       |
+| `alterDomain`   | `boolean` | `true`: domain replace `www.google.com` with `www.recaptcha.net`                      |
 
 ### Composition API
 
