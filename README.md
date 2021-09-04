@@ -1,5 +1,9 @@
 # vue3-recaptcha-v2
 
+![GitHub package.json version](https://img.shields.io/github/package-json/v/dongkyuuuu/vue3-recaptcha-v2)
+![npm bundle size](https://img.shields.io/bundlephobia/min/vue3-recaptcha-v2)
+![NPM](https://img.shields.io/npm/l/vue3-recaptcha-v2)
+
 `reCAPTCHA v2` for `Vue3` : CompositionAPI, Types
 
 # Installation
