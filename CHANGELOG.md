@@ -1,3 +1,14 @@
+# [1.0.0](https://github.com/dongkyuuuu/vue3-recaptcha-v2/compare/v0.3.1...v1.0.0) (2021-09-05)
+
+
+### Features
+
+* change component import ([792f906](https://github.com/dongkyuuuu/vue3-recaptcha-v2/commit/792f90640775038194b77214d0aef47bb89b4242))
+* **docs:** README.md add badge ([6ed3652](https://github.com/dongkyuuuu/vue3-recaptcha-v2/commit/6ed3652fb11ac5ecd96f440d49243c8ede8c1b08))
+* **docs:** update README.md ([a54b125](https://github.com/dongkyuuuu/vue3-recaptcha-v2/commit/a54b125df6239b744093af7b3acd16ab208c412a))
+
+
+
 ## [0.3.1](https://github.com/dongkyuuuu/vue3-recaptcha-v2/compare/v0.3.0...v0.3.1) (2021-08-25)
 
 
