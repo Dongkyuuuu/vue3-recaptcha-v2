@@ -1,7 +1,6 @@
-import { inject, InjectionKey } from "vue";
-import type { Recaptcha } from "./useRecaptchar";
+import { inject } from "vue";
+import { recaptchaV2Key } from "./symbols";
 
 export function useRecaptcha() {
-  const recaptcha: InjectionKey<Recaptcha> = Symbol();
-  return inject(recaptcha)!;
+  return inject(recaptchaV2Key)!;
 }

@@ -6,17 +6,19 @@
 import {
   computed,
   defineComponent,
-  onBeforeMount,
   PropType,
   toRefs,
   ref,
   onUnmounted,
+  inject,
+  onMounted,
 } from "vue";
 import type { recaptchaTheme, recaptchaSize } from "../types";
-import { state } from "../config/state";
+import { recaptchaSiteKey } from "../symbols";
 
 export default defineComponent({
   name: "VueRecaptcha",
+  emits: ["verify", "expired", "fail", "widgetId"],
   props: {
     theme: { type: String as PropType<recaptchaTheme>, default: "light" },
     size: {
@@ -29,7 +31,7 @@ export default defineComponent({
     const { theme, size, tabindex } = toRefs(props);
     const recaptchaWidgetID = ref<number | null>(null);
     const reCAPTCHA = ref<HTMLElement | string>("");
-    const siteKey = ref<string>(state.siteKey);
+    const siteKey = inject(recaptchaSiteKey)!;
 
     const propTheme = computed<recaptchaTheme>(() => theme.value);
     const propSize = computed<recaptchaSize>(() => size.value);
@@ -38,7 +40,7 @@ export default defineComponent({
     const renderRecaptcha = () => {
       window.grecaptcha.ready(() => {
         recaptchaWidgetID.value = window.grecaptcha.render(reCAPTCHA.value, {
-          sitekey: siteKey.value,
+          sitekey: siteKey,
           theme: propTheme.value,
           size: propSize.value,
           tabindex: propTabindex.value,
@@ -51,7 +53,7 @@ export default defineComponent({
       });
     };
 
-    onBeforeMount(() => {
+    onMounted(() => {
       if (!window.grecaptcha) {
         document.getElementById("vue3-recaptcha-v2")!.onload = () => {
           renderRecaptcha();

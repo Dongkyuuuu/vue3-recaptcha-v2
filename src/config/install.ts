@@ -1,19 +1,14 @@
 import { App } from "vue";
+import { recaptchaSiteKey } from "../symbols";
 import type { options } from "../types";
-import VueRecaptcha from "../components/vueRecaptcha.vue";
-import { state } from "./state";
 
 const ERROR_MSG_SITEKEY = "options must be included siteKey";
 
 export function install(app: App<Element>, options: options) {
   if (!options.siteKey) throw new Error(ERROR_MSG_SITEKEY);
-  _script(options);
+  app.provide(recaptchaSiteKey, options.siteKey);
 
-  state.siteKey = options.siteKey;
-  app.component(
-    options.componentName ? options.componentName : "vue-recaptcha",
-    VueRecaptcha
-  );
+  _script(options);
 }
 
 function _script(options: options) {

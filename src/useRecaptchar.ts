@@ -5,7 +5,7 @@ export interface Recaptcha {
 export function useRecaptcha(): Recaptcha {
   const resetRecaptcha = (widgetId: number): void => {
     if (typeof widgetId !== "number")
-      throw new Error("resetRecaptcha need 'widgetId' argument");
+      throw new Error("resetRecaptcha must have 'widgetId'");
 
     window.grecaptcha.reset(widgetId);
   };
