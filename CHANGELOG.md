@@ -1,3 +1,7 @@
+## [1.0.1](https://github.com/dongkyuuuu/vue3-recaptcha-v2/compare/v1.0.0...v1.0.1) (2022-02-02)
+
+
+
 # [1.0.0](https://github.com/dongkyuuuu/vue3-recaptcha-v2/compare/v0.3.1...v1.0.0) (2021-09-05)
 
 
