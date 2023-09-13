@@ -15,6 +15,9 @@ BUMP=${BUMP_LIST[$REPLY - 1]}
 yarn version $BUMP
 yarn build
 
+VERSION=$(grep version package.json | sed -E 's/^.*"([0-9][^"]+)".*$/\1/')
+
+
 # ChangeLog
 yarn changelog
 echo "Please check the git history and the changelog and press enter"
