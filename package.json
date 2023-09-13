@@ -3,8 +3,8 @@
   "version": "1.0.1",
   "description": "reCAPTCHA for Vue3 : CompositionAPI, Types",
   "type": "module",
-  "main": "dist/vue3-recaptcha-v2.js",
-  "types": "dist/vue3-recaptcha-v2.d.ts",
+  "main": "./dist/vue3-recaptcha-v2.umd.cjs",
+  "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/dongkyuuuu/vue3-recaptcha-v2.git"
@@ -12,9 +12,7 @@
   "author": "DongKyuuuu",
   "license": "MIT",
   "files": [
-    "dist/*.js",
-    "dist/vue3-recaptcha-v2.d.ts",
-    "README.md"
+    "dist"
   ],
   "keywords": [
     "vue",
@@ -23,8 +21,14 @@
     "google-recaptcha",
     "recaptcha"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/vue3-recaptcha-v2.js",
+      "require": "./dist/vue3-recaptcha-v2.umd.cjs"
+    }
+  },
   "scripts": {
-    "build": "tsup",
+    "build": "vite build",
     "dev": "vite --config playground/vite.config.js"
   },
   "peerDependencies": {
@@ -32,10 +36,10 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.3.4",
-    "tsup": "^7.2.0",
     "typescript": "^5.2.2",
     "vite": "^4.4.9",
-    "vue-tsc": "^1.8.10"
+    "vite-plugin-dts": "^3.5.3",
+    "vue": "^3.3.4"
   },
   "packageManager": "yarn@3.6.3"
 }
