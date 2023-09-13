@@ -13,7 +13,7 @@ const props = defineProps<{
   language?: string;
 }>();
 const emit = defineEmits<{
-  (e: "widgetId", value: string): void;
+  (e: "widgetId", value: number): void;
   (e: "loadCallback", response: unknown): void;
   (e: "expiredCallback"): void;
   (e: "errorCallback"): void;

@@ -9,7 +9,7 @@ declare global {
       render: (
         conatiner: HTMLElement,
         options: Record<string, unknown>
-      ) => string;
+      ) => number;
       reset: (widgetId: number) => void;
       getResponse: (widgetId: number) => string;
       ready: (callback: () => void) => void;
