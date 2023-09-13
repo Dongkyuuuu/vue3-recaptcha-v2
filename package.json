@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "description": "reCAPTCHA for Vue3 : CompositionAPI, Types",
   "type": "module",
-  "main": "./dist/vue3-recaptcha-v2.umd.cjs",
+  "main": "./dist/index.umd.cjs",
   "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
@@ -23,13 +23,13 @@
   ],
   "exports": {
     ".": {
-      "import": "./dist/vue3-recaptcha-v2.js",
-      "require": "./dist/vue3-recaptcha-v2.umd.cjs"
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
     }
   },
   "scripts": {
-    "build": "vite build",
-    "dev": "vite --config playground/vite.config.js"
+    "build": "vite build -c ./vite.config.ts",
+    "dev": "vite ./playground"
   },
   "peerDependencies": {
     "vue": "^3"

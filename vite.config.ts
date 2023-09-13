@@ -7,8 +7,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: "src/index.ts",
-      name: "Vue3ReacaptchaV2",
-      fileName: "vue3-recaptcha-v2",
+      name: "index",
+      fileName: "index",
     },
     rollupOptions: {
       external: ["vue"],
