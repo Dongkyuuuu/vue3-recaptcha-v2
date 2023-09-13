@@ -1,6 +1,5 @@
 export type InstallOptions = {
-  siteKey: string;
-  language?: string;
+  sitekey: string;
   cnDomains?: boolean; // in China, https://github.com/Dongkyuuuu/vue3-recaptcha-v2/issues/2
 };
 
@@ -11,8 +10,9 @@ declare global {
         conatiner: HTMLElement,
         options: Record<string, unknown>
       ) => string;
-      reset: (widgetId: string) => void;
-      getResponse: (widgetId: string) => string;
+      reset: (widgetId: number) => void;
+      getResponse: (widgetId: number) => string;
+      ready: (callback: () => void) => void;
     };
   }
 }
