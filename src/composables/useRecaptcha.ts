@@ -3,7 +3,7 @@ import { ReCaptchaError } from "../utils";
 
 export const useRecaptcha = () => {
   /** Reset reCAPTCHA widget */
-  const handleReset = (widgetId: string) => {
+  const handleReset = (widgetId: number) => {
     if (IS_SERVER)
       throw new ReCaptchaError("reCaptcha is not available on server side");
     if (!window.grecaptcha)
@@ -13,7 +13,7 @@ export const useRecaptcha = () => {
   };
 
   /** Get reCAPTCHA widget response */
-  const handleGetResponse = (widgetId: string) => {
+  const handleGetResponse = (widgetId: number) => {
     if (IS_SERVER)
       throw new ReCaptchaError("reCaptcha is not available on server side");
     if (!window.grecaptcha)
