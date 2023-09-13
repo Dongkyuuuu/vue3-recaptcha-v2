@@ -22,8 +22,18 @@ export const useRecaptcha = () => {
     return window.grecaptcha.getResponse(widgetId);
   };
 
+  const handleExecute = (widgetId: number) => {
+    if (IS_SERVER)
+      throw new ReCaptchaError("reCaptcha is not available on server side");
+    if (!window.grecaptcha)
+      throw new ReCaptchaError("reCaptcha is not available on window");
+
+    window.grecaptcha.execute(widgetId);
+  };
+
   return {
     handleReset,
     handleGetResponse,
+    handleExecute,
   };
 };

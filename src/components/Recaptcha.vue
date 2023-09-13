@@ -4,11 +4,12 @@ import { RECAPTCHA_SCRIPT_ID } from "../constants";
 import { useInstall } from "./../composables";
 import { ReCaptchaError } from "./../utils";
 
+const widgetId = ref<number | null>(null);
 const reCAPTCHARef = ref<null | HTMLElement | HTMLDivElement>(null);
 const { handleGenerateScript, options } = useInstall();
 const props = defineProps<{
   theme?: "light" | "dark";
-  size?: "normal" | "compact";
+  size?: "normal" | "compact" | "invisible";
   tabindex?: number;
   language?: string;
 }>();
@@ -27,7 +28,7 @@ const handleRenderRecaptcha = () => {
     try {
       const { sitekey } = options;
       const { theme, size, tabindex } = props;
-      const widgetId = window.grecaptcha!.render(reCAPTCHARef.value!, {
+      widgetId.value = window.grecaptcha!.render(reCAPTCHARef.value!, {
         sitekey,
         theme,
         size,
@@ -37,7 +38,7 @@ const handleRenderRecaptcha = () => {
         "error-callback": () => emit("errorCallback"),
       });
 
-      emit("widgetId", widgetId);
+      emit("widgetId", widgetId.value);
     } catch (e) {
       throw new ReCaptchaError((e as Error).message);
     }

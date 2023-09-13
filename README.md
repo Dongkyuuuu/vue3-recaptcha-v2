@@ -80,6 +80,25 @@ const handleLoadCallback = (response: unknown) => {
 </template>
 ```
 
+### Invisible widget
+
+```vue
+<script setup lang="ts">
+import { RecaptchaV2, useRecaptcha } from "vue3-recaptcha-v2";
+
+const { handleExecute } = useRecaptcha();
+
+const handleWidgetId = (widgetId: number) => {
+  console.log("Widget ID: ", widgetId);
+  handleExecute(widgetId);
+};
+</script>
+
+<template>
+  <RecaptchaV2 @widget-id="handleWidgetId" size="invisible" />
+</template>
+```
+
 ### Reset widget
 
 Resets the reCAPTCHA widget.
@@ -135,12 +154,12 @@ const handleWidgetId = (widgetId: number) => {
 
 #### Props
 
-| Options    | Type                   | Required | Description                                                                                                     |
-| ---------- | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
-| `language` | `string`               |          | recaptcha language, you can find code in [language code](https://developers.google.com/recaptcha/docs/language) |
-| `theme`    | `light` \| `dark`      |          | default is `light`, recaptcha theme                                                                             |
-| `tabindex` | `number`               |          | default is `0`, tabindex                                                                                        |
-| `size`     | `normal` \| `comapact` |          | default is `normal`, recaptcha widget size                                                                      |
+| Options    | Type                                  | Required | Description                                                                                                     |
+| ---------- | ------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
+| `language` | `string`                              |          | recaptcha language, you can find code in [language code](https://developers.google.com/recaptcha/docs/language) |
+| `theme`    | `light` \| `dark`                     |          | default is `light`, recaptcha theme                                                                             |
+| `tabindex` | `number`                              |          | default is `0`, tabindex                                                                                        |
+| `size`     | `normal` \| `comapact` \| `invisible` |          | default is `normal`, recaptcha widget size                                                                      |
 
 #### emits
 

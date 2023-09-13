@@ -12,6 +12,7 @@ declare global {
       ) => number;
       reset: (widgetId: number) => void;
       getResponse: (widgetId: number) => string;
+      execute: (widgetId: number) => string;
       ready: (callback: () => void) => void;
     };
   }
