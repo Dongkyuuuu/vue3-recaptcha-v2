@@ -1,3 +1,17 @@
+## 2.0.0 (2023-09-13)
+
+- BREAKING CHANGE: 2.0.0 ([b87c74b](https://github.com/dongkyuuuu/vue3-recaptcha-v2/commit/b87c74b))
+
+### New Features
+
+- [#10](https://github.com/Dongkyuuuu/vue3-recaptcha-v2/issues/10) [#8](https://github.com/Dongkyuuuu/vue3-recaptcha-v2/issues/8) Add language props in `RecaptchaV2 ` component
+- [#7](https://github.com/Dongkyuuuu/vue3-recaptcha-v2/issues/7) Add `invisible` component option, `handleExecute` composable
+- [#6](https://github.com/Dongkyuuuu/vue3-recaptcha-v2/issues/6) Add `Nuxt 3 usage` documentation
+
+### Fixed
+
+- [#9](https://github.com/Dongkyuuuu/vue3-recaptcha-v2/issues/9) Unit test bug fix
+
 ## [1.0.1](https://github.com/dongkyuuuu/vue3-recaptcha-v2/compare/v1.0.0...v1.0.1) (2022-02-02)
 
 ### Bug Fix

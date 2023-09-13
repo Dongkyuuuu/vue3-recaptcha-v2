@@ -1,6 +1,6 @@
 {
   "name": "vue3-recaptcha-v2",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "reCAPTCHA for Vue3 : CompositionAPI, Types",
   "type": "module",
   "main": "./dist/index.umd.cjs",
@@ -29,13 +29,15 @@
   },
   "scripts": {
     "build": "vite build -c ./vite.config.ts",
-    "dev": "vite ./playground"
+    "dev": "vite ./playground",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1"
   },
   "peerDependencies": {
     "vue": "^3"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.3.4",
+    "conventional-changelog-cli": "^4.1.0",
     "typescript": "^5.2.2",
     "vite": "^4.4.9",
     "vite-plugin-dts": "^3.5.3",
