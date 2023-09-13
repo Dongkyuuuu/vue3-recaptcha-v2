@@ -8,7 +8,7 @@ echo
 for i in "${!BUMP_LIST[@]}"; do
     echo " $(($i + 1)). ${BUMP_LIST[$i]}"
 done
-read - p "Select version  👉" -n 1 -r
+read -p "Select version  👉" -n 1 -r
 BUMP=${BUMP_LIST[$REPLY - 1]}
 
 # Bump version
