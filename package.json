@@ -30,7 +30,8 @@
   "scripts": {
     "build": "vite build -c ./vite.config.ts",
     "dev": "vite ./playground",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1",
+    "release": "sh scripts/release.sh"
   },
   "peerDependencies": {
     "vue": "^3"
