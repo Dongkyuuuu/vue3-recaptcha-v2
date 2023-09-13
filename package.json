@@ -3,8 +3,8 @@
   "version": "1.0.1",
   "description": "reCAPTCHA for Vue3 : CompositionAPI, Types",
   "type": "module",
-  "main": "dist/vue3-recaptcha-v2.js",
-  "types": "dist/vue3-recaptcha-v2.d.ts",
+  "main": "./dist/index.umd.cjs",
+  "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/dongkyuuuu/vue3-recaptcha-v2.git"
@@ -12,9 +12,7 @@
   "author": "DongKyuuuu",
   "license": "MIT",
   "files": [
-    "dist/*.js",
-    "dist/vue3-recaptcha-v2.d.ts",
-    "README.md"
+    "dist"
   ],
   "keywords": [
     "vue",
@@ -23,33 +21,25 @@
     "google-recaptcha",
     "recaptcha"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
+    }
+  },
   "scripts": {
-    "build": "rollup -c rollup.config.js",
-    "build:dts": "api-extractor run --local --verbose",
-    "dev": "vite --config playground/vite.config.js",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1",
-    "release": "bash scripts/release.sh"
+    "build": "vite build -c ./vite.config.ts",
+    "dev": "vite ./playground"
   },
   "peerDependencies": {
-    "vue": "^3.0.0"
+    "vue": "^3"
   },
   "devDependencies": {
-    "@microsoft/api-extractor": "^7.18.5",
-    "@rollup/plugin-alias": "^3.1.5",
-    "@rollup/plugin-node-resolve": "^13.0.4",
-    "@types/grecaptcha": "^3.0.3",
-    "@vitejs/plugin-vue": "^1.4.0",
-    "@vue/compiler-sfc": "3.1.0",
-    "conventional-changelog-cli": "^2.1.1",
-    "rollup": "^2.56.2",
-    "rollup-plugin-analyzer": "^4.0.0",
-    "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-typescript2": "^0.30.0",
-    "rollup-plugin-vue": "^6.0.0",
-    "tslib": "^2.3.1",
-    "typescript": "^4.3.5",
-    "vite": "^2.5.0",
-    "vue": "3.0.0",
-    "vue-tsc": "^0.2.3"
-  }
+    "@vitejs/plugin-vue": "^4.3.4",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.9",
+    "vite-plugin-dts": "^3.5.3",
+    "vue": "^3.3.4"
+  },
+  "packageManager": "yarn@3.6.3"
 }

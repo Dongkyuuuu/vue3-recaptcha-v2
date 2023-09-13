@@ -1,12 +1,13 @@
-import { install } from "./config";
-import VueRecaptcha from "./components/vueRecaptcha.vue";
+import type { App } from "vue";
+import type { InstallOptions } from "./types";
+import { INTSALL_OPTIONS_KEY } from "./constants";
+import { ReCaptchaError } from "./utils";
+import { useRecaptcha } from "./composables";
+import RecaptchaV2 from "./components/Recaptcha.vue";
 
-export { useRecaptcha } from "./useRecaptchar";
-export * from "./useApi";
+function install(app: App, options: InstallOptions) {
+  if (!options.sitekey) throw new ReCaptchaError("sitekey is required");
+  app.provide(INTSALL_OPTIONS_KEY, options);
+}
 
-/**
- * Export Vue Components
- */
-export { VueRecaptcha };
-
-export default install;
+export { useRecaptcha, install, RecaptchaV2 };

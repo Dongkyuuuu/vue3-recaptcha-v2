@@ -4,154 +4,168 @@
 ![npm bundle size](https://img.shields.io/bundlephobia/min/vue3-recaptcha-v2)
 ![NPM](https://img.shields.io/npm/l/vue3-recaptcha-v2)
 
-`reCAPTCHA v2` for `Vue3` : CompositionAPI, Types
+reCAPTCHA v2 for Vue3 and Nuxt3.
 
-If you use [`v0.x`](https://github.com/DongKyuuuu/vue3-recaptcha-v2/tree/v0.3.1), recommend using `v1.x` or higher.
+## Installation
 
-# Installation
-
-#### Yarn
+install the packge from `yarn`:
 
 ```sh
 $ yarn add vue3-recaptcha-v2
 ```
 
-#### npm
+In `Vue3`, add it to your `main.ts file`:
 
-```sh
-$ npm install vue3-recaptcha-v2 --save
-```
-
-# Example
-
-### Setup
-
-```js
-// main.js
+```typescript
 import { createApp } from "vue";
 import App from "./App.vue";
-import VueRecaptcha from "vue3-recaptcha-v2";
 
-const app = createApp(App);
+import { install } from "vue3-recaptcha-v2";
 
-app
-  .use(VueRecaptcha, {
-    siteKey: "your recaptcha sitekey",
-    alterDomain: false, // default: false
-  })
-  .mount("#app");
+createApp(install, {
+  sitekey: "YOUT_SITE_KEY",
+  cnDomains: false, // Optional, If you use in China, set this value true
+}).mount("#app");
 ```
 
-### \*install options
+In `Nuxt3`, add it to your `plugin folder`:
 
-| Option        | Type      | Description                                                      |
-| ------------- | --------- | ---------------------------------------------------------------- |
-| `siteKey`     | `string`  | (required) recaptcha siteKey                                     |
-| `alterDomain` | `boolean` | `true`: domain replace `www.google.com` with `www.recaptcha.net` |
+The file name must contain the `.client`.
 
-### Usage
+```typescript
+// <ProjectRoot>/plugins/recaptcha.client.ts
+import { install } from "vue3-recaptcha-v2";
 
-```html
-<template>
-  <vue-recaptcha
-    theme="light"
-    size="normal"
-    :tabindex="0"
-    @widgetId="recaptchaWidget = $event"
-    @verify="callbackVerify($event)"
-    @expired="callbackExpired()"
-    @fail="callbackFail()"
-  />
+export default defineNuxtPlugin((nuxtApp) => {
+  nuxtApp.vueApp.use(install, {
+    sitekey: "YOUT_SITE_KEY",
+    cnDomains: false,
+  });
+});
+```
 
-  <button @click="actionReset()">reset!</button>
-</template>
+More detail about install options, you can check this [Install Options](#install-options)
 
-<script>
-  import { ref } from "vue";
-  import { VueRecaptcha, useRecaptcha } from "vue3-recaptcha-v2";
+## Usage
 
-  export default {
-    name: "recaptcha",
-    components: { VueRecaptcha },
-    setup: () => {
-      // Reset Recaptcha
-      const { resetRecaptcha } = useRecaptcha();
-      const recaptchaWidget = ref(null);
+The components used are the same for `Vue3` and `Nuxt3`. Only the installation is different.
 
-      const callbackVerify = (response) => {
-        console.log(response);
-      };
-      const callbackExpired = () => {
-        console.log("expired!");
-      };
-      const callbackFail = () => {
-        console.log("fail");
-      };
-      // Reset Recaptcha action
-      const actionReset = () => {
-        resetRecaptcha(recaptchaWidget.value);
-      };
+For more information, including the props to `change the language(hl option)`, check [Component Options](#component-options)
 
-      return {
-        recaptchaWidget,
-        callbackVerify,
-        callbackFail,
-        actionReset,
-      };
-    },
-  };
+```vue
+<script setup lang="ts">
+import { RecaptchaV2 } from "vue3-recaptcha-v2";
+
+const handleWidgetId = (widgetId: number) => {
+  console.log("Widget ID: ", widgetId);
+};
+const handleErrorCalback = () => {
+  console.log("Error callback");
+};
+const handleExpiredCallback = () => {
+  console.log("Expired callback");
+};
+const handleLoadCallback = (response: unknown) => {
+  console.log("Load callback", response);
+};
 </script>
+
+<template>
+  <RecaptchaV2
+    @widget-id="handleWidgetId"
+    @error-callback="handleErrorCalback"
+    @expired-callback="handleExpiredCallback"
+    @load-callback="handleLoadCallback"
+  />
+</template>
 ```
 
-# API
+### Invisible widget
 
-## Props
+```vue
+<script setup lang="ts">
+import { RecaptchaV2, useRecaptcha } from "vue3-recaptcha-v2";
 
-**vue-recaptcha** components props list
+const { handleExecute } = useRecaptcha();
 
-### theme
+const handleWidgetId = (widgetId: number) => {
+  console.log("Widget ID: ", widgetId);
+  handleExecute(widgetId);
+};
+</script>
 
-- `optional`
-- type : `light` | `dark`
-- default : `light`
+<template>
+  <RecaptchaV2 @widget-id="handleWidgetId" size="invisible" />
+</template>
+```
 
-### size
+### Reset widget
 
-- `optional`
-- type : `normal` | `compact` | `invisible`
-- default : `normal`
+Resets the reCAPTCHA widget.
 
-### tabindex
+```vue
+<script setup lang="ts">
+import { RecaptchaV2, useRecaptcha } from "vue3-recaptcha-v2";
 
-- `optional`
-- type : `number`
-- default : 0
+const { handleReset } = useRecaptcha();
 
-## Emit
+const handleWidgetId = (widgetId: number) => {
+  console.log("Widget ID: ", widgetId);
+  handleReset(widgetId);
+};
+</script>
 
-**vue-recaptcha** components emit list
+<template>
+  <RecaptchaV2 @widget-id="handleWidgetId" />
+</template>
+```
 
-### widgetId
+### Get response widget
 
-- return : `number`
+Gets the response for the reCAPTCHA widget.
 
-### verify
+```vue
+<script setup lang="ts">
+import { RecaptchaV2, useRecaptcha } from "vue3-recaptcha-v2";
 
-- return : `string`
+const { handleGetResponse } = useRecaptcha();
 
-### expired
+const handleWidgetId = (widgetId: number) => {
+  console.log("Widget ID: ", widgetId);
+  handleGetResponse(widgetId);
+};
+</script>
 
-- return : `void`
+<template>
+  <RecaptchaV2 @widget-id="handleWidgetId" />
+</template>
+```
 
-### fail
+## Options
 
-- return : `void`
+### Install Options
 
-## methods
+| Options     | Type     | Required | Description                                                                                            |     |
+| ----------- | -------- | -------- | ------------------------------------------------------------------------------------------------------ | --- |
+| `sitekey`   | `string` | true     | recaptcha siteKey                                                                                      |     |
+| `cnDomains` | `string` |          | default is `false`. if you set `true`, script url is replace `www.google.com` with `www.recaptcha.net` |     |
 
-**vue-recaptcha** components methods list
+### Component Options
 
-### resetRecaptcha
+#### Props
 
-- param : `widgetId`
-- return : `void`
+| Options    | Type                                  | Required | Description                                                                                                     |
+| ---------- | ------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
+| `language` | `string`                              |          | recaptcha language, you can find code in [language code](https://developers.google.com/recaptcha/docs/language) |
+| `theme`    | `light` \| `dark`                     |          | default is `light`, recaptcha theme                                                                             |
+| `tabindex` | `number`                              |          | default is `0`, tabindex                                                                                        |
+| `size`     | `normal` \| `comapact` \| `invisible` |          | default is `normal`, recaptcha widget size                                                                      |
+
+#### emits
+
+| Options            | Type                       | Required | Description                                                                                                                                                                                                                                                           |
+| ------------------ | -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `widget-id`        | `(value:number)=>void`     |          | when recaptcha widget is created, return widgetId                                                                                                                                                                                                                     |
+| `error-callback`   | `()=>void`                 |          | The name of your callback function, executed when reCAPTCHA encounters an error (usually network connectivity) and cannot continue until connectivity is restored. If you specify a function here, you are responsible for informing the user that they should retry. |
+| `expired-callback` | `()=>void`                 |          | The name of your callback function, executed when the reCAPTCHA response expires and the user needs to re-verify.                                                                                                                                                     |
+| `load-callback`    | `(response:unknown)=>void` |          | The name of your callback function, executed when the user submits a successful response. The g-recaptcha-response token is passed to your callback.                                                                                                                  |

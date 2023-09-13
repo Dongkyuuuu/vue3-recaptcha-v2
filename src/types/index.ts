@@ -1,13 +1,19 @@
-/**
- * config
- */
-export interface options {
-  siteKey: string;
-  alterDomain?: boolean;
-}
+export type InstallOptions = {
+  sitekey: string;
+  cnDomains?: boolean; // in China, https://github.com/Dongkyuuuu/vue3-recaptcha-v2/issues/2
+};
 
-/**
- * components
- */
-export type recaptchaTheme = "light" | "dark";
-export type recaptchaSize = "normal" | "compact" | "invisible";
+declare global {
+  interface Window {
+    grecaptcha?: {
+      render: (
+        conatiner: HTMLElement,
+        options: Record<string, unknown>
+      ) => number;
+      reset: (widgetId: number) => void;
+      getResponse: (widgetId: number) => string;
+      execute: (widgetId: number) => string;
+      ready: (callback: () => void) => void;
+    };
+  }
+}
