@@ -22,10 +22,12 @@ import App from "./App.vue";
 
 import { install } from "vue3-recaptcha-v2";
 
-createApp(install, {
-  sitekey: "YOUT_SITE_KEY",
-  cnDomains: false, // Optional, If you use in China, set this value true
-}).mount("#app");
+createApp(App)
+  .use(install, {
+    sitekey: "YOUT_SITE_KEY",
+    cnDomains: false, // Optional, If you use in China, set this value true
+  })
+  .mount("#app");
 ```
 
 In `Nuxt3`, add it to your `plugin folder`:
