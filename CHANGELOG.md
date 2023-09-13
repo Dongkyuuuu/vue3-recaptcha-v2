@@ -1,3 +1,11 @@
+## <small>2.0.1 (2023-09-13)</small>
+
+* build: add release script and ci ([6335274](https://github.com/dongkyuuuu/vue3-recaptcha-v2/commit/6335274))
+* build: in release.sh wrong read -p options fixed ([ac3a4d2](https://github.com/dongkyuuuu/vue3-recaptcha-v2/commit/ac3a4d2))
+* docs: vue3 install example fixed ([5fa631b](https://github.com/dongkyuuuu/vue3-recaptcha-v2/commit/5fa631b))
+
+
+
 ## 2.0.0 (2023-09-13)
 
 - BREAKING CHANGE: 2.0.0 ([b87c74b](https://github.com/dongkyuuuu/vue3-recaptcha-v2/commit/b87c74b))
