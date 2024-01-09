@@ -1,3 +1,14 @@
+## <small>2.0.2 (2024-01-09)</small>
+
+* fix: create script function is call duplicate (#12) ([5c2cdbd](https://github.com/dongkyuuuu/vue3-recaptcha-v2/commit/5c2cdbd)), closes [#12](https://github.com/dongkyuuuu/vue3-recaptcha-v2/issues/12)
+* build: add release script and ci ([6335274](https://github.com/dongkyuuuu/vue3-recaptcha-v2/commit/6335274))
+* build: in release.sh wrong read -p options fixed ([ac3a4d2](https://github.com/dongkyuuuu/vue3-recaptcha-v2/commit/ac3a4d2))
+* build: miss new version fixed ([af431b0](https://github.com/dongkyuuuu/vue3-recaptcha-v2/commit/af431b0))
+* release: v ([3d7b6c7](https://github.com/dongkyuuuu/vue3-recaptcha-v2/commit/3d7b6c7))
+* docs: vue3 install example fixed ([5fa631b](https://github.com/dongkyuuuu/vue3-recaptcha-v2/commit/5fa631b))
+
+
+
 ## <small>2.0.1 (2023-09-13)</small>
 
 * build: add release script and ci ([6335274](https://github.com/dongkyuuuu/vue3-recaptcha-v2/commit/6335274))
