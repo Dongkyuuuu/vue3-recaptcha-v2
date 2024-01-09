@@ -17,6 +17,11 @@ export const useInstall = () => {
       throw new ReCaptchaError("Cannot generate script on server side");
     }
 
+    const el = document.getElementById(RECAPTCHA_SCRIPT_ID);
+    if (el) {
+      el.remove()
+    }
+
     const script = document.createElement("script");
     const src = options?.cnDomains ? GOOGLE_DOMAINS_CN : GOOGLE_DOMAINS;
     const lang = language ? `&hl=${language}` : "";
