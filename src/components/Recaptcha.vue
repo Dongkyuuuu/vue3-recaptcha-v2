@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import { ref, onBeforeMount, onMounted } from "vue";
+import { ref, onBeforeMount, onMounted, watch } from "vue";
 import { RECAPTCHA_SCRIPT_ID } from "../constants";
-import { useInstall } from "../composable";
+import { useInstall } from "../composables";
 import { ReCaptchaError } from "./../utils";
 
 const widgetId = ref<number | null>(null);
 const reCAPTCHARef = ref<null | HTMLElement | HTMLDivElement>(null);
 const { handleGenerateScript, options } = useInstall();
 const props = defineProps<{
+  sitekey?: string;
   theme?: "light" | "dark";
   size?: "normal" | "compact" | "invisible";
   tabindex?: number;
@@ -20,14 +21,14 @@ const emit = defineEmits<{
   (e: "errorCallback"): void;
 }>();
 
-const handleRenderRecaptcha = () => {
+const handleRenderRecaptcha = (sitekey: string) => {
   if (!window.grecaptcha) throw new ReCaptchaError("reCAPTCHA is not loaded");
   if (!reCAPTCHARef.value) throw new ReCaptchaError("element is not defined");
 
+  const { theme, size, tabindex } = props;
+
   window.grecaptcha.ready(() => {
     try {
-      const { sitekey } = options;
-      const { theme, size, tabindex } = props;
       widgetId.value = window.grecaptcha!.render(reCAPTCHARef.value!, {
         sitekey,
         theme,
@@ -45,12 +46,22 @@ const handleRenderRecaptcha = () => {
   });
 };
 
+watch(
+  () => props.sitekey,
+  (sitekey) => {
+    if (sitekey && !widgetId.value) handleRenderRecaptcha(sitekey);
+  }
+);
+
 onBeforeMount(() => {
   handleGenerateScript(props.language);
 });
+/** User set sitekey when app initialize, use this lifeCycle */
 onMounted(() => {
+  const { sitekey } = options;
+
   document.getElementById(RECAPTCHA_SCRIPT_ID)!.onload = () => {
-    handleRenderRecaptcha();
+    sitekey && handleRenderRecaptcha(sitekey);
   };
 });
 </script>

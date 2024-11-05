@@ -1,5 +1,5 @@
 export type InstallOptions = {
-  sitekey: string;
+  sitekey?: string;
   cnDomains?: boolean; // in China, https://github.com/Dongkyuuuu/vue3-recaptcha-v2/issues/2
 };
 
