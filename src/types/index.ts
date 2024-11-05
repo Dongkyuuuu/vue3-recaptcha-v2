@@ -1,5 +1,5 @@
 export type InstallOptions = {
-  sitekey: string;
+  sitekey?: string;
   cnDomains?: boolean; // in China, https://github.com/Dongkyuuuu/vue3-recaptcha-v2/issues/2
 };
 
@@ -7,7 +7,7 @@ declare global {
   interface Window {
     grecaptcha?: {
       render: (
-        conatiner: HTMLElement,
+        container: HTMLElement,
         options: Record<string, unknown>
       ) => number;
       reset: (widgetId: number) => void;

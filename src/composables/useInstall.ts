@@ -1,6 +1,6 @@
 import { inject } from "vue";
 import {
-  INTSALL_OPTIONS_KEY,
+  INSTALL_OPTIONS_KEY,
   IS_SERVER,
   RECAPTCHA_SCRIPT_ID,
   GOOGLE_DOMAINS,
@@ -10,7 +10,7 @@ import type { InstallOptions } from "../types";
 import { ReCaptchaError } from "../utils";
 
 export const useInstall = () => {
-  const options = inject<InstallOptions>(INTSALL_OPTIONS_KEY)!;
+  const options = inject<InstallOptions>(INSTALL_OPTIONS_KEY)!;
 
   const handleGenerateScript = (language?: string) => {
     if (IS_SERVER) {
@@ -19,7 +19,7 @@ export const useInstall = () => {
 
     const el = document.getElementById(RECAPTCHA_SCRIPT_ID);
     if (el) {
-      el.remove()
+      el.remove();
     }
 
     const script = document.createElement("script");

@@ -24,7 +24,7 @@ import { install } from "vue3-recaptcha-v2";
 
 createApp(App)
   .use(install, {
-    sitekey: "YOUT_SITE_KEY",
+    sitekey: "YOUR_SITE_KEY",
     cnDomains: false, // Optional, If you use in China, set this value true
   })
   .mount("#app");
@@ -40,10 +40,37 @@ import { install } from "vue3-recaptcha-v2";
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(install, {
-    sitekey: "YOUT_SITE_KEY",
+    sitekey: "YOUR_SITE_KEY",
     cnDomains: false,
   });
 });
+```
+
+### Dynamic SiteKey
+
+If you want to add siteKey dynamically, follow this step.
+
+**IMPORTANT::: The reCAPTCHA widget is rendered once, so changes to the siteKey after rendering will not be reflected.**
+
+```typescript
+import { createApp } from "vue";
+import App from "./App.vue";
+
+import { install } from "vue3-recaptcha-v2";
+
+createApp(App)
+  .use(install) // Do not add siteKey when initialize app
+  .mount("#app");
+```
+
+```vue
+<script setup lang="ts">
+import { RecaptchaV2 } from "vue3-recaptcha-v2";
+</script>
+
+<template>
+  <RecaptchaV2 :sitekey="YOUR_SITE_KEY" />
+</template>
 ```
 
 More detail about install options, you can check this [Install Options](#install-options)
@@ -61,7 +88,7 @@ import { RecaptchaV2 } from "vue3-recaptcha-v2";
 const handleWidgetId = (widgetId: number) => {
   console.log("Widget ID: ", widgetId);
 };
-const handleErrorCalback = () => {
+const handleErrorCallback = () => {
   console.log("Error callback");
 };
 const handleExpiredCallback = () => {
@@ -75,7 +102,7 @@ const handleLoadCallback = (response: unknown) => {
 <template>
   <RecaptchaV2
     @widget-id="handleWidgetId"
-    @error-callback="handleErrorCalback"
+    @error-callback="handleErrorCallback"
     @expired-callback="handleExpiredCallback"
     @load-callback="handleLoadCallback"
   />
