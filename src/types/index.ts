@@ -7,7 +7,7 @@ declare global {
   interface Window {
     grecaptcha?: {
       render: (
-        conatiner: HTMLElement,
+        container: HTMLElement,
         options: Record<string, unknown>
       ) => number;
       reset: (widgetId: number) => void;

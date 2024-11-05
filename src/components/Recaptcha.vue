@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onBeforeMount, onMounted } from "vue";
 import { RECAPTCHA_SCRIPT_ID } from "../constants";
-import { useInstall } from "./../composables";
+import { useInstall } from "../composable";
 import { ReCaptchaError } from "./../utils";
 
 const widgetId = ref<number | null>(null);
