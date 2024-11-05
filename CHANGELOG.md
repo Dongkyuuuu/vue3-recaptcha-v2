@@ -1,3 +1,9 @@
+## 2.1.0 (2024-11-05)
+
+* feat: update siteKey dynamically (#15) ([1a2e3a4](https://github.com/dongkyuuuu/vue3-recaptcha-v2/commit/1a2e3a4)), closes [#15](https://github.com/dongkyuuuu/vue3-recaptcha-v2/issues/15)
+
+
+
 ## <small>2.0.2 (2024-01-09)</small>
 
 * fix: create script function is call duplicate (#12) ([5c2cdbd](https://github.com/dongkyuuuu/vue3-recaptcha-v2/commit/5c2cdbd)), closes [#12](https://github.com/dongkyuuuu/vue3-recaptcha-v2/issues/12)
